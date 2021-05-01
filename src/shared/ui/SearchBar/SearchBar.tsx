@@ -1,24 +1,29 @@
-import { TextField } from "@material-ui/core"
-import { withStyles } from "@material-ui/core/styles"
+import React from "react"
+import styles from "./SearchBar.module.css"
+import { StyledTextField } from "../StyledTextField"
 
-export const StyledTextField = withStyles({
-  root: {
-    borderBottom: "0.1px solid white",
-    width: "50%",
-    marginLeft: "auto",
-    marginRight: "auto",
-    paddingBottom: 0,
-    marginTop: 0,
-    caretColor: "white",
-    "& .MuiFormLabel-root": {
-      color: "white",
-    },
-    "& label.Mui-focused": {
-      fontSize: "16px",
-      color: "white",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "#F04F30",
-    },
-  },
-})(TextField)
+interface IProps {
+  value: string
+  label: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+export class SearchBar extends React.Component<IProps, {}> {
+  render() {
+    return (
+      <div className={styles.container}>
+        <StyledTextField
+          inputProps={{
+            style: {
+              color: "white",
+            },
+          }}
+          value={this.props.value}
+          onChange={this.props.onChange}
+          id="standard-basic"
+          label={this.props.label}
+          autoComplete="off"
+        />
+      </div>
+    )
+  }
+}

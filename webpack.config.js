@@ -24,8 +24,13 @@ module.exports = {
         loader: "source-map-loader",
       },
       {
-        test: /\.css$/,
-        loader: "css-loader",
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        loader: "react-image-element-loader",
+        exclude: /node_modules/,
       },
     ],
   },

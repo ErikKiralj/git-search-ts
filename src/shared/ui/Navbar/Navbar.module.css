@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #0d1117;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex: wrap;
+  height: 8rem;
+}
+
+.navbarImage {
+  width: 6rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .navbarImage {
+    margin: auto;
+    padding-top: 2rem;
+  }
+}
