@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Rajdhani", sans-serif;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex: wrap;
+  height: 8rem;
+}
+
+.navbarImage {
+  width: 6rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .navbarImage {
+    margin: auto;
+    padding-top: 2rem;
+  }
+}

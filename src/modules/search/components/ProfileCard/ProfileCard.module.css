@@ -1,0 +1,31 @@
+.profile {
+  padding: 1rem;
+  background-color: #161d27;
+  border-radius: 5px;
+  height: fit-content;
+  text-align: center;
+}
+
+.image img {
+  width: 15rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 2px solid #f37259;
+}
+
+.info {
+  text-align: left;
+}
+
+.info h2 {
+  padding: 0.5rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .profile {
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+  }
+}
