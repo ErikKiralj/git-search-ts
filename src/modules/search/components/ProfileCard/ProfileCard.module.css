@@ -1,5 +1,24 @@
 .profile {
+  padding: 1rem;
   background-color: #161d27;
   border-radius: 5px;
-  height: 50vh;
+  height: 40vh;
+  text-align: center;
+}
+
+.image img {
+  background-color: teal;
+  width: 15rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 2px solid #f37259;
+}
+
+.info {
+  text-align: left;
+}
+
+.info h2 {
+  padding: 0.5rem;
 }

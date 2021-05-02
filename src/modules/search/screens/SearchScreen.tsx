@@ -2,14 +2,16 @@ import React, { Component } from "react"
 import styles from "./SearchScreen.module.css"
 import { Navbar, SearchBar, Button } from "../../../shared/ui"
 import { ProfileCard, RepoCard } from "../components"
-import { getUserRepo } from "../thunks"
+import { getUserRepo, getUserProfile } from "../thunks"
 interface IState {
   query: string
+  user: any
   repositories: any
 }
 export class SearchScreen extends Component<{}, IState> {
   state: IState = {
     query: "",
+    user: null,
     repositories: null,
   }
 
@@ -18,12 +20,14 @@ export class SearchScreen extends Component<{}, IState> {
   }
 
   loadData = async (): Promise<any> => {
-    let repos = await getUserRepo("ErikKiralj")
-    this.setState({ repositories: repos.data.user.repositories.nodes })
+    const { query } = this.state
+    let user = await getUserProfile(query)
+    let repos = await getUserRepo(query)
+    this.setState({ repositories: repos?.data?.user?.repositories?.nodes, user: user?.data?.repositoryOwner })
   }
 
   render() {
-    const { query } = this.state
+    const { query, user, repositories } = this.state
     return (
       <div className={styles.main}>
         <Navbar />
@@ -31,10 +35,12 @@ export class SearchScreen extends Component<{}, IState> {
           <SearchBar value={query} label={"Search"} onChange={this.handleQueryChange} />
           <Button label={"Search"} onClick={this.loadData}></Button>
         </div>
-        <div className={`${styles.content} ${styles.grid}`}>
-          <ProfileCard />
-          <RepoCard />
-        </div>
+        {user && repositories && (
+          <div className={`${styles.content} ${styles.grid}`}>
+            <ProfileCard data={user} />
+            <RepoCard />
+          </div>
+        )}
       </div>
     )
   }

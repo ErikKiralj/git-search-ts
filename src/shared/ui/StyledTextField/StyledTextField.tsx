@@ -14,7 +14,7 @@ export const StyledTextField = withStyles({
       color: "white",
     },
     "& label.Mui-focused": {
-      fontSize: "16px",
+      fontSize: "18px",
       color: "white",
     },
     "& .MuiInput-underline:after": {
