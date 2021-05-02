@@ -1,0 +1,19 @@
+.container {
+  margin-top: 3rem;
+  margin-left: 1rem;
+}
+
+.myButton {
+  background-color: #f04f30;
+  border-radius: 5px;
+  padding: 10px 25px 10px 25px;
+  overflow: hidden;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.myButton:hover {
+  background-color: #f37259;
+}
