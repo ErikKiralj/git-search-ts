@@ -12,14 +12,21 @@ export const StyledTextField = withStyles({
     caretColor: "white",
     "& .MuiFormLabel-root": {
       color: "white",
+      fontFamily: "Rajdhani",
+      fontSize: "25px",
     },
     "& label.Mui-focused": {
-      fontSize: "18px",
+      fontSize: "25px",
       color: "white",
     },
     "& .MuiInput-underline:after": {
       borderBottomColor: "#F04F30",
       color: "white",
+    },
+    "& .MuiInputBase-input": {
+      color: "white",
+      fontFamily: "Rajdhani",
+      fontSize: "23px",
     },
   },
 })(TextField)

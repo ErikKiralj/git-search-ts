@@ -39,3 +39,20 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #f28d79;
 }
+
+@media only screen and (max-width: 500px) {
+  .search {
+    flex-direction: column;
+  }
+
+  .grid,
+  .content .grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr !important;
+  }
+
+  .grid {
+    margin-top: 2rem;
+    gap: 20px;
+  }
+}

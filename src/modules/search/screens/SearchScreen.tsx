@@ -3,16 +3,18 @@ import styles from "./SearchScreen.module.css"
 import { Navbar, SearchBar, Button } from "../../../shared/ui"
 import { ProfileCard, RepoCard } from "../components"
 import { getUserRepo, getUserProfile } from "../thunks"
+import { IUser } from "../../../shared/models/User"
+import { IRepository } from "../../../shared/models/Repository"
 interface IState {
   query: string
-  user: any
-  repositories: any
+  user: IUser
+  repositories: IRepository[]
 }
 export class SearchScreen extends Component<{}, IState> {
   state: IState = {
     query: "",
     user: null,
-    repositories: null,
+    repositories: [],
   }
 
   handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,8 +24,9 @@ export class SearchScreen extends Component<{}, IState> {
   loadData = async (): Promise<any> => {
     const { query } = this.state
     let user = await getUserProfile(query)
-    let repos = await getUserRepo(query)
-    this.setState({ repositories: repos?.data?.user?.repositories?.nodes, user: user?.data?.repositoryOwner })
+    let repositories = await getUserRepo(query)
+
+    this.setState({ repositories, user })
   }
 
   render() {
@@ -31,14 +34,14 @@ export class SearchScreen extends Component<{}, IState> {
     return (
       <div className={styles.main}>
         <Navbar />
-        <div className={styles.search}>
-          <SearchBar value={query} label={"Search"} onChange={this.handleQueryChange} />
+        <div id="search" className={styles.search}>
+          <SearchBar value={query} label={"Search GitHub Username"} onChange={this.handleQueryChange} />
           <Button label={"Search"} onClick={this.loadData}></Button>
         </div>
-        {user && repositories && (
+        {user && (
           <div className={`${styles.content} ${styles.grid}`}>
             <ProfileCard data={user} />
-            <RepoCard />
+            <RepoCard data={repositories} />
           </div>
         )}
       </div>

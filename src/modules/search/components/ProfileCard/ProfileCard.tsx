@@ -15,7 +15,7 @@ export class ProfileCard extends React.Component<IProps, {}> {
         </div>
         <div className={styles.info}>
           <h3>Username: {data.login}</h3>
-          <h3>Email: {data.email}</h3>
+          <h3>Email: {data.email ? data.email : "-"}</h3>
           <h3>
             Github: <a href={data.url}>{data.url}</a>
           </h3>

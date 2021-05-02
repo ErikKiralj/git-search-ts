@@ -2,12 +2,11 @@
   padding: 1rem;
   background-color: #161d27;
   border-radius: 5px;
-  height: 40vh;
+  height: fit-content;
   text-align: center;
 }
 
 .image img {
-  background-color: teal;
   width: 15rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -21,4 +20,12 @@
 
 .info h2 {
   padding: 0.5rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .profile {
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+  }
 }

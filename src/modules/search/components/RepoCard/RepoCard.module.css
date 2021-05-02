@@ -2,5 +2,23 @@
   background-color: #161d27;
   border-radius: 5px;
   padding: 1rem;
-  min-height: 50vh;
+  margin-bottom: 2rem;
+  min-height: 5vh;
+  height: fit-content;
+}
+
+.card {
+  margin: 0.5rem;
+}
+
+.card h3 {
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .repo {
+    height: fit-content;
+
+    margin: 1rem;
+  }
 }

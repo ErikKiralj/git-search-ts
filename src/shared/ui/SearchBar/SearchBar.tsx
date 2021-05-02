@@ -11,18 +11,7 @@ export class SearchBar extends React.Component<IProps, {}> {
   render() {
     return (
       <div className={styles.container}>
-        <StyledTextField
-          inputProps={{
-            style: {
-              color: "white",
-            },
-          }}
-          value={this.props.value}
-          onChange={this.props.onChange}
-          id="standard-basic"
-          label={this.props.label}
-          autoComplete="off"
-        />
+        <StyledTextField value={this.props.value} onChange={this.props.onChange} id="standard-basic" label={this.props.label} autoComplete="off" />
       </div>
     )
   }

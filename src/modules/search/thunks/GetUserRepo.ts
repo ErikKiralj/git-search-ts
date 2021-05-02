@@ -1,8 +1,9 @@
 import { graphQlUrl } from "./consts"
+import { IRepository } from "../../../shared/models/Repository";
 
 const fetch = require("node-fetch")
 
-export const getUserRepo = async (username: string): Promise<any> => {
+export const getUserRepo = async (username: string): Promise<IRepository[]> => {
   let data = null
   const accessToken : string = process.env.REACT_APP_TOKEN 
   let query = `
@@ -28,7 +29,9 @@ export const getUserRepo = async (username: string): Promise<any> => {
   })
     .then((res: any) => res.text())
     .then((body: any) => {
-      return JSON.parse(body)
+      const repositories = JSON.parse(body).data.user.repositories.nodes
+       console.log(JSON.parse(body))
+       return repositories
     })
     .catch((error: any) => console.error(error)))
 }

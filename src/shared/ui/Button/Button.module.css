@@ -17,3 +17,10 @@
 .myButton:hover {
   background-color: #f37259;
 }
+
+@media only screen and (max-width: 500px) {
+  .container {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+}
