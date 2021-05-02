@@ -46,6 +46,7 @@ export class SearchScreen extends Component<{}, IState> {
     let order = ""
     asc === true ? (order = "asc") : (order = "desc")
     let repositoriesTemp = arrayObjectsSort(repositories, "name", order)
+    this.setState({ repositories: repositoriesTemp })
   }
 
   render() {
