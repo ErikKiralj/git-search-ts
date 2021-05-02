@@ -4,7 +4,7 @@ const fetch = require("node-fetch")
 
 export const getUserRepo = async (username: string): Promise<any> => {
   let data = null
-  const accessToken = "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"
+  const accessToken : string = process.env.REACT_APP_TOKEN 
   let query = `
          query {
             user(login: "${username}") {
@@ -19,7 +19,7 @@ export const getUserRepo = async (username: string): Promise<any> => {
            }
          `
 
-  return (data = await fetch("https://api.github.com/graphql", {
+  return (data = await fetch(graphQlUrl, {
     method: "POST",
     body: JSON.stringify({ query }),
     headers: {
@@ -29,6 +29,6 @@ export const getUserRepo = async (username: string): Promise<any> => {
     .then((res: any) => res.text())
     .then((body: any) => {
       return JSON.parse(body)
-    }) // {"data":{"repository":{"issues":{"totalCount":247}}}}
+    })
     .catch((error: any) => console.error(error)))
 }
