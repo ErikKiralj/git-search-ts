@@ -30,7 +30,6 @@ export const getUserRepo = async (username: string): Promise<IRepository[]> => {
     .then((res: any) => res.text())
     .then((body: any) => {
       const repositories = JSON.parse(body).data.user.repositories.nodes
-       console.log(JSON.parse(body))
        return repositories
     })
     .catch((error: any) => console.error(error)))

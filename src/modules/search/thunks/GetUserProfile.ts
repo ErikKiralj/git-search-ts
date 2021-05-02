@@ -26,7 +26,6 @@ export const getUserProfile = async (username: string): Promise<IUser> => {
   })
     .then((res: any) => res.text())
     .then((body: any) => {
-      console.log(JSON.parse(body))
       const user = JSON.parse(body).data.repositoryOwner
       return user
     })
